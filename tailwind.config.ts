@@ -57,6 +57,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Portfolio custom colors
+        portfolio: {
+          bg: "#070707",
+          accent: "#BED92D",
+          "accent-dark": "#a8c225",
+          glass: "rgba(255,255,255,0.10)",
+        },
+      },
+      fontFamily: {
+        display: ["Playfair Display", "serif"],
+        logo: ["Space Grotesk", "sans-serif"],
+        "logo-script": ["Dancing Script", "cursive"],
+        nav: ["Raleway", "sans-serif"],
+        body: ["Instrument Sans", "sans-serif"],
+        sans: ["Instrument Sans", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +80,31 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "float-up": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        marquee: "marquee 25s linear infinite",
+        "float-up": "float-up 4s ease-in-out infinite",
+      },
+      backgroundImage: {
+        "monitor-screen":
+          "linear-gradient(180deg, #D9D9D9 0%, #A9B17C 50%, #C4CE33 100%)",
       },
     },
   },
