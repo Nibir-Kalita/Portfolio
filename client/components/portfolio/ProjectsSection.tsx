@@ -11,19 +11,19 @@ const projects = [
   },
   {
     id: 2,
-    name: "Portfolio Website",
+    name: "HireWise",
     logo: null,
     description:
-      "A personal portfolio website designed and developed from scratch, showcasing projects, design works, and skills. Built with modern web technologies with a focus on clean aesthetics and smooth user experience.",
-    roles: ["Designer", "Developer"],
-  },
+      "A clever resume analysis platform, to assess applicants.It ensures hiring accuracy by comparing resume skills with real-time assessments.created to assist recruiters in making data-driven decisions more quickly.",
+    roles : ["Head UI/UX Designer", "Project Lead"],
+    },
   {
     id: 3,
-    name: "Brand Identity",
+    name: "Carbonlens",
     logo: null,
     description:
-      "Comprehensive brand identity design project including logo design, color palette, typography selection, and brand guidelines. Created for a local business looking to establish a strong visual presence.",
-    roles: ["Brand Designer", "Art Director"],
+      "A smart platform that tracks, analyzes, and visualizes carbon emissions to help individuals and organizations make sustainable decisions. It simplifies climate data into actionable insights for building a greener, low-carbon future.",
+    roles: ["UI/UX Designer", "Content Director", "System Architecture Designer"],
   },
 ];
 
