@@ -2,13 +2,10 @@ export default function HeroSection() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-start overflow-hidden"
+      className="relative min-h-screen flex items-start"
     >
-      {/* Background blobs */}
-      <div className="absolute top-[-80px] right-[-100px] w-[500px] h-[500px] rounded-full opacity-100"
-        style={{ background: "#BED92D", filter: "blur(180px)" }} />
-      <div className="absolute top-[300px] left-[-150px] w-[500px] h-[500px] rounded-full opacity-100"
-        style={{ background: "#BED92D", filter: "blur(200px)" }} />
+      
+        
 
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
@@ -83,7 +80,7 @@ export default function HeroSection() {
   <div className="relative w-full max-w-[600px] h-[720px]">
 
     {/* Shield Container */}
-    <div className="absolute top-0 left-12 w-full h-[600px] rounded-b-[440px] border border-white/30 overflow-hidden">
+    <div className="absolute top-0 right-0 w-[95%] h-[600px] rounded-b-[440px] border border-white/30 overflow-hidden">
 
       {/* Gradient Background */}
       <div
@@ -104,11 +101,11 @@ export default function HeroSection() {
       {/* TEXT */}
       <div className="relative z-20 text-center mt-12 px-1">
         <h1 className="font-display font-medium leading-[0.82]">
-          <span className="block text-white text-[72px] md:text-[95px] lg:text-[110px]">
+          <span className="block text-white text-[72px] md:text-[95px] lg:text-[100px]">
             Developer
           </span>
           <span
-            className="block text-[72px] md:text-[95px] lg:text-[110px]"
+            className="block text-[72px] md:text-[95px] lg:text-[100px]"
             style={{
               WebkitTextStroke: "2px white",
               color: "transparent",
