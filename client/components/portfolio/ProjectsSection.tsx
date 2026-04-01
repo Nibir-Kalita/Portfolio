@@ -1,10 +1,13 @@
 import { useState } from "react";
-
+import logo1 from "../../assets/logos/logo1.png";
+import logo2 from "../../assets/logos/logo2.png";
+import logo3 from "../../assets/logos/logo3.png";
 const projects = [
   {
     id: 1,
     name: "SkinWise",
-    logo: "https://api.builder.io/api/v1/image/assets/TEMP/d6631eedf3f9746ce9717a2ea2d0591aa8f3e5da?width=193",
+    logo: logo1,
+    link : "https://riddevs.github.io/SKINWISE/",
     description:
       "An AI-powered skin disease detection app called Skinwise was created to provide prompt, accurate diagnosis. Get immediate insights based on medical data and machine learning by uploading an image, enabling users to manage their skin health more effectively and detect problems early.",
     roles: ["Head UI/UX Designer", "Project Head"],
@@ -12,7 +15,8 @@ const projects = [
   {
     id: 2,
     name: "HireWise",
-    logo: null,
+    logo: logo2,
+    link : "https://riddevs.github.io/HireWise/homenew.html",
     description:
       "A clever resume analysis platform, to assess applicants.It ensures hiring accuracy by comparing resume skills with real-time assessments.created to assist recruiters in making data-driven decisions more quickly.",
     roles : ["Head UI/UX Designer", "Project Lead"],
@@ -20,7 +24,8 @@ const projects = [
   {
     id: 3,
     name: "Carbonlens",
-    logo: null,
+    logo: logo3,
+    link : "https://www.carbonlens.space/",
     description:
       "A smart platform that tracks, analyzes, and visualizes carbon emissions to help individuals and organizations make sustainable decisions. It simplifies climate data into actionable insights for building a greener, low-carbon future.",
     roles: ["UI/UX Designer", "Content Director", "System Architecture Designer"],
@@ -88,10 +93,9 @@ export default function ProjectsSection() {
                 <img
                   src={project.logo}
                   alt={project.name}
-                  className="w-[70px] h-[70px] md:w-[90px] md:h-[90px] rounded-2xl object-cover flex-shrink-0"
+                    className="w-[100px] h-[100px] object-contain transition duration-1000 hover:scale-500"
                   style={{
-                    transform: "rotate(-3.73deg)",
-                    boxShadow: "0 4px 13.2px 0 rgba(0,0,0,0.25)",
+                    transform: "rotate(0deg)",
                   }}
                 />
               ) : (
@@ -99,9 +103,16 @@ export default function ProjectsSection() {
                   <span className="text-white/60 text-2xl">✦</span>
                 </div>
               )}
-              <h3 className="font-body font-semibold text-[28px] md:text-[36px] lg:text-[40px] text-[#F1F1F1]">
+              
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body font-semibold text-[28px] md:text-[36px] lg:text-[40px] text-[#F1F1F1] hover:text-[#BED92D] transition"
+>
                 {project.name}
-              </h3>
+              </a>
+              
             </div>
 
             {/* Description */}
