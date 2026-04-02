@@ -50,7 +50,7 @@ export default function HeroSection() {
                       </div>
 
                       <p className="text-white text-xs opacity-70">
-                        portfolio.app
+                        Nibir.Portfolio
                       </p>
 
                       <p className="text-white text-xs opacity-70">
