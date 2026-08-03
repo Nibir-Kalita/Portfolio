@@ -1,0 +1,42 @@
+/* ============================================
+   App — Desktop container & Matte Black Wallpaper
+   ============================================ */
+
+.desktop {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  background-color: #08080a;
+}
+
+.desktop--visible {
+  opacity: 1;
+}
+
+/* ---------- Fixed Matte Black Wallpaper ---------- */
+.desktop__wallpaper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: #08080a;
+}
+
+/* Subtle texture overlay */
+.desktop__wallpaper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-conic-gradient(
+      rgba(255, 255, 255, 0.012) 0% 25%,
+      transparent 0% 50%
+    ) 0 / 4px 4px;
+  pointer-events: none;
+  opacity: 0.6;
+}

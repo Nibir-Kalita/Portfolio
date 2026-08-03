@@ -1,0 +1,125 @@
+/* ============================================
+   IntroScreen — Dark matte greeting overlay
+   ============================================ */
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--surface-intro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  will-change: transform;
+  transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.intro-screen--sliding {
+  transform: translateY(-100%);
+}
+
+/* Ambient glow behind text */
+.intro-screen__glow {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.14) 0%,
+    rgba(168, 85, 247, 0.08) 40%,
+    transparent 70%
+  );
+  filter: blur(70px);
+  pointer-events: none;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Content container */
+.intro-screen__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+}
+
+/* Individual greeting text — Big & Bold */
+.intro-screen__greeting {
+  position: absolute;
+  font-size: clamp(3.5rem, 2rem + 9vw, 7.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-shadow: 0 4px 30px rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transform: translateY(30px) scale(0.92);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  white-space: nowrap;
+  text-wrap: balance;
+}
+
+.intro-screen__greeting--active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.intro-screen__greeting--past {
+  opacity: 0;
+  transform: translateY(-30px) scale(0.92);
+}
+
+/* Font family & bold weight overrides */
+.greeting-bengali {
+  font-family: var(--font-bengali);
+  font-weight: 700;
+}
+
+.greeting-english {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.greeting-devanagari {
+  font-family: var(--font-devanagari);
+  font-weight: 700;
+}
+
+/* Bottom dots indicator */
+.intro-screen__hint {
+  position: absolute;
+  bottom: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.intro-screen__hint-dots {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.intro-screen__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+
+.intro-screen__dot--active {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.4);
+}
+
+.intro-screen__dot--past {
+  background: rgba(255, 255, 255, 0.4);
+}

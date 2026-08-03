@@ -1,0 +1,297 @@
+/* ============================================
+   Window — macOS-style draggable window
+   ============================================ */
+
+.window {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  min-width: 420px;
+  min-height: 280px;
+  background: var(--surface-window);
+  backdrop-filter: var(--blur-window);
+  -webkit-backdrop-filter: var(--blur-window);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-window);
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+/* Opening animation */
+.window--opening {
+  animation: windowOpen 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes windowOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Closing animation */
+.window--closing {
+  animation: windowClose 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+@keyframes windowClose {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+}
+
+/* Active / Inactive state */
+.window--active {
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.55), 0 18px 36px -18px rgba(0, 0, 0, 0.35);
+}
+
+.window:not(.window--active) {
+  opacity: 0.95;
+}
+
+
+/* Maximized state */
+.window--maximized {
+  border-radius: 0 !important;
+}
+
+/* ---------- Title Bar ---------- */
+.window__titlebar {
+  display: flex;
+  align-items: center;
+  height: var(--titlebar-height);
+  padding-inline: var(--space-md);
+  background: var(--surface-window-titlebar);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: default;
+  flex-shrink: 0;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.window__traffic-lights {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.window__traffic-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter var(--transition-fast);
+  cursor: pointer;
+  padding: 0;
+}
+
+.window__traffic-btn svg {
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.window__traffic-lights:hover .window__traffic-btn svg {
+  opacity: 1;
+}
+
+.window__traffic-btn--close {
+  background: var(--color-red);
+}
+
+.window__traffic-btn--minimize {
+  background: var(--color-yellow);
+}
+
+.window__traffic-btn--maximize {
+  background: var(--color-green);
+}
+
+.window__traffic-btn:hover {
+  filter: brightness(1.15);
+}
+
+.window__title {
+  flex: 1;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.window__titlebar-spacer {
+  width: 52px;
+  flex-shrink: 0;
+}
+
+/* ---------- Mobile Back Button (iOS-style) ---------- */
+.window__mobile-back {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-blue-400);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: 4px 0;
+  flex-shrink: 0;
+}
+
+.window__mobile-back:active {
+  opacity: 0.5;
+}
+
+/* ---------- Content ---------- */
+.window__content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--space-lg);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================
+   Tablet (iPad-like) — 768px–1024px
+   ============================================ */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .window.window--tablet {
+    /* Centered card, not draggable */
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+    width: min(90vw, 700px) !important;
+    height: min(80dvh, 600px) !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .window.window--tablet.window--opening {
+    animation: windowOpenTablet 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes windowOpenTablet {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  .window.window--tablet.window--closing {
+    animation: windowCloseTablet 0.2s ease forwards;
+  }
+
+  @keyframes windowCloseTablet {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+
+  .window__titlebar {
+    height: 42px;
+  }
+
+  .window__traffic-btn {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ============================================
+   Mobile (iPhone-like) — ≤767px
+   ============================================ */
+@media (max-width: 767px) {
+  .window.window--mobile {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: rgba(20, 20, 22, 0.97);
+    backdrop-filter: blur(40px) saturate(1.4);
+    -webkit-backdrop-filter: blur(40px) saturate(1.4);
+  }
+
+  .window.window--mobile.window--opening {
+    animation: windowOpenMobile 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes windowOpenMobile {
+    from {
+      opacity: 0;
+      transform: translateY(30%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .window.window--mobile.window--closing {
+    animation: windowCloseMobile 0.2s ease forwards;
+  }
+
+  @keyframes windowCloseMobile {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(30%);
+    }
+  }
+
+  .window--mobile .window__titlebar {
+    height: 48px;
+    padding-inline: var(--space-md);
+    background: rgba(25, 25, 28, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .window--mobile .window__title {
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .window--mobile .window__titlebar-spacer {
+    width: 60px;
+  }
+
+  .window--mobile .window__content {
+    padding: var(--space-md);
+    padding-bottom: calc(var(--space-lg) + 80px);
+  }
+
+  /* Hide traffic lights on mobile */
+  .window--mobile .window__traffic-lights {
+    display: none;
+  }
+}

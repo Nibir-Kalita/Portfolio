@@ -1,0 +1,323 @@
+/* ============================================
+   Design System — macOS Portfolio
+   ============================================ */
+
+/* ---------- Font Faces ---------- */
+@font-face {
+  font-family: 'Francesca';
+  src: url('/fonts/Francesca.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FrancescaBold';
+  src: url('/fonts/Francesca-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AkiraExpanded';
+  src: url('/fonts/Akira Expanded Demo.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SilverGarden';
+  src: url('/fonts/Silver Garden.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SilverGardenBold';
+  src: url('/fonts/Silver Garden Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PetitaLight';
+  src: url('/fonts/PetitaLight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PetitaMedium';
+  src: url('/fonts/PetitaMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PetitaBold';
+  src: url('/fonts/PetitaBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Tier 1: Literal Tokens ---------- */
+:root {
+  /* Colors */
+  --color-black: #0a0a0a;
+  --color-white: #ffffff;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+  --color-gray-950: #0d0d0d;
+
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-purple-400: #c084fc;
+  --color-purple-500: #a855f7;
+  --color-purple-600: #9333ea;
+  --color-indigo-400: #818cf8;
+  --color-indigo-500: #6366f1;
+
+  --color-red: #ff5f57;
+  --color-yellow: #febc2e;
+  --color-green: #28c840;
+
+  /* Spacing */
+  --space-xxs: 0.125rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 22px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-heading: 'AkiraExpanded', 'Inter', -apple-system, sans-serif;
+  --font-desc: 'Poppins', 'Inter', -apple-system, sans-serif;
+  --font-bengali: 'Noto Sans Bengali', sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+  --font-mono: 'FrancescaBold', 'Francesca', 'JetBrains Mono', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+
+  /* ---------- Tier 2: Semantic Tokens ---------- */
+
+  /* Ultra-realistic Glassmorphism Surfaces */
+  --surface-desktop: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 75%, #16213e 100%);
+  --surface-glass: rgba(255, 255, 255, 0.08);
+  --surface-glass-dock: rgba(35, 35, 45, 0.48);
+  --surface-glass-menubar: rgba(20, 20, 28, 0.65);
+  --surface-window: rgba(24, 24, 32, 0.75);
+  --surface-window-titlebar: rgba(35, 35, 45, 0.82);
+  --surface-intro: #0a0a0a;
+
+  /* Borders & Specular Highlights */
+  --border-glass: 1px solid rgba(255, 255, 255, 0.18);
+  --border-glass-specular: 1px solid rgba(255, 255, 255, 0.28);
+  --border-glass-light: 0.5px solid rgba(255, 255, 255, 0.12);
+  --border-window: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* Blurs & Saturation */
+  --blur-glass: blur(35px) saturate(210%);
+  --blur-window: blur(45px) saturate(190%);
+  --blur-dock: blur(35px) saturate(220%);
+  --blur-menubar: blur(25px) saturate(190%);
+
+  /* Multi-layered Glass Shadows & Reflections */
+  --shadow-window: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 0 16px 32px -16px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  --shadow-dock: 0 16px 40px -8px rgba(0, 0, 0, 0.55), 0 8px 16px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.3), inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+  --shadow-icon: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  /* Text */
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text-accent: var(--color-blue-400);
+
+  /* ---------- Tier 3: Animation Tokens ---------- */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-spring: 600ms linear(0, 0.016 0.5%, 0.06 1%, 0.226 2%, 1.116 5.4%, 1.375 6.6%, 1.527 7.7%, 1.565 8.2%, 1.585 8.8%, 1.581 9.3%, 1.559 9.8%, 1.458 10.9%, 0.937 14.3%, 0.784 15.5%, 0.693 16.6%, 0.67 17.1%, 0.657 17.7%, 0.671 18.7%, 0.729 19.8%, 1.042 23.3%, 1.13 24.5%, 1.182 25.6%, 1.201 26.7%, 1.192 27.7%, 1.156 28.8%, 0.977 32.2%, 0.925 33.4%, 0.894 34.5%, 0.882 35.6%, 0.887 36.6%, 0.907 37.7%, 1.045 42.4%, 1.069 44.5%, 1.059 46.3%, 0.979 50.9%, 0.96 53.4%, 0.966 55.3%, 1.013 59.9%, 1.024 62.3%, 0.986 71.2%, 1.008 79.9%, 0.995 88.9%, 1);
+
+  /* Dock Sizing — Enlarged for prominent macOS toolbar feel */
+  --dock-icon-size: 60px;
+  --dock-icon-size-magnified: 92px;
+  --dock-padding: 8px 14px;
+  --dock-gap: 6px;
+
+  /* Window */
+  --window-min-width: 500px;
+  --window-min-height: 350px;
+  --titlebar-height: 38px;
+
+  /* Menu Bar */
+  --menubar-height: 28px;
+}
+
+/* ---------- Global Resets ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--color-black);
+  overflow: hidden;
+  line-height: 1.5;
+  min-height: 100dvh;
+  user-select: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---------- Scrollbar Styling ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: rgba(99, 102, 241, 0.4);
+  color: var(--color-white);
+}
+
+/* ---------- Website Description Typography (Poppins Font) ---------- */
+p,
+.about-desc__text,
+.about-desc__p,
+.hanging-card__desc,
+.exp-item__desc,
+.project-card__desc,
+.project-modal__desc,
+.section-desc,
+.info-value,
+.lang-text,
+.wc-about__bio,
+.wc-about__text,
+.wc-projects__card-desc,
+.wc-resume__desc,
+.wc-contact__info p,
+.contact-glass-form p,
+.contact-direct-inquiries p,
+.contact-input-group label,
+.contact-input-group input,
+.contact-input-group textarea,
+.desktop-footer p {
+  font-family: 'Poppins', 'Inter', -apple-system, sans-serif !important;
+  font-weight: 400;
+}
+
+/* ---------- Website Headings (Akira Expanded Font) ---------- */
+.hero-text-main,
+.about-title-outline,
+.about-title-fill,
+.design-works-title,
+.projects-section-title,
+.skills-section-title,
+.contact-section-title,
+.section-title,
+.exp-section-title,
+.hanging-projects-title {
+  font-family: 'AkiraExpanded', 'Inter', sans-serif !important;
+}
