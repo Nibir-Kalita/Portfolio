@@ -2,9 +2,9 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 import './Dock.css';
 
 const DOCK_ITEMS = [
-  { id: 'about', icon: '👤', label: 'About Me', type: 'window' },
-  { id: 'projects', icon: '🚀', label: 'Projects', type: 'window' },
-  { id: 'skills', icon: '⚡', label: 'Skills', type: 'window' },
+  { id: 'about', icon: '/icons/about.png', label: 'About Me', type: 'window' },
+  { id: 'projects', icon: '/icons/projects.png', label: 'Projects', type: 'window' },
+  { id: 'skills', icon: '/icons/skills.png', label: 'Skills', type: 'window' },
   { id: 'contact', icon: '/icons/contact.png', label: 'Contact', type: 'window' },
   { id: 'resume', icon: '/icons/resume.png', label: 'Resume', type: 'window' },
   { id: 'terminal', icon: '/icons/terminal.png', label: 'Terminal', type: 'window' },

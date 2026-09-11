@@ -139,7 +139,7 @@ export default function Window({
   return (
     <div
       ref={windowRef}
-      className={`window ${isActive ? 'window--active' : ''} ${
+      className={`window window--${id} ${isActive ? 'window--active' : ''} ${
         isClosing ? 'window--closing' : 'window--opening'
       } ${isFullScreen ? 'window--maximized' : ''} ${
         isMobile ? 'window--mobile' : ''

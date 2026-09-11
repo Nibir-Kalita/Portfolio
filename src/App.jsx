@@ -4,6 +4,7 @@ import MenuBar from './components/MenuBar/MenuBar';
 import Dock from './components/Dock/Dock';
 import Window from './components/Window/Window';
 import DesktopContent from './components/DesktopContent/DesktopContent';
+import DynamicBackground from './components/DynamicBackground/DynamicBackground';
 import AboutMe from './components/WindowContents/AboutMe';
 import Projects from './components/WindowContents/Projects';
 import Skills from './components/WindowContents/Skills';
@@ -32,10 +33,10 @@ const WINDOW_CONFIG = {
     defaultSize: { width: 720, height: 520 },
   },
   contact: {
-    title: 'Contact',
+    title: 'contact@nibir.dev',
     component: Contact,
-    defaultPosition: { x: 180, y: 85 },
-    defaultSize: { width: 750, height: 500 },
+    defaultPosition: { x: 180, y: 70 },
+    defaultSize: { width: 780, height: 530 },
   },
   resume: {
     title: 'Resume',
@@ -106,6 +107,9 @@ export default function App() {
       >
         {/* Fixed Wallpaper in Background */}
         <div className="desktop__wallpaper" />
+
+        {/* Interactive Particle Network Background */}
+        <DynamicBackground />
 
         {/* Fixed Top Menu Bar */}
         <MenuBar />
