@@ -24,17 +24,7 @@ export default function Contact() {
 
           <div className="contact-info-block">
             <span className="info-label">EMAIL:</span>
-            <a href="mailto:hello@nibir.dev" className="info-value">hello@nibir.dev</a>
-          </div>
-
-          <div className="contact-info-block">
-            <span className="info-label">PHONE:</span>
-            <p className="info-value">+1 (555) 019-2834</p>
-          </div>
-
-          <div className="contact-info-block">
-            <span className="info-label">ADDRESS:</span>
-            <p className="info-value">123 Innovation Avenue, Suite 456<br />Tech District, San Francisco, CA 94107<br />United States</p>
+            <a href="mailto:hello@nibir.dev" className="info-value">raag8757@gmail.com</a>
           </div>
 
           {/* Social Icons Row matching reference image */}
